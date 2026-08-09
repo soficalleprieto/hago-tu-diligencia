@@ -1,6 +1,6 @@
 # Hago Tu Diligencia — sitio web
 
-Sitio estático (HTML + CSS + JS, sin build ni dependencias) para el negocio de trámites, diligencias, compras y cuidado del hogar a domicilio en Bogotá y Cundinamarca.
+Sitio estático (HTML + CSS + JS, sin build ni dependencias) para el negocio de trámites, diligencias, compras y cuidado del hogar a domicilio en Bogotá.
 
 Basado en el benchmark competitivo SEO realizado previamente (estructura, menú, servicios y arquitectura de URLs recomendados a partir de competidores reales en Bogotá, Medellín, Colombia, Chile y Miami).
 
@@ -18,7 +18,6 @@ Basado en el benchmark competitivo SEO realizado previamente (estructura, menú,
     a-medida.html
   zonas/
     bogota.html
-    cundinamarca.html
   testimonios.html
   faq.html
   sobre-mi.html
