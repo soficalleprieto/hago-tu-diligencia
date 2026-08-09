@@ -44,11 +44,12 @@ Y abrir `http://localhost:8080`.
 
 ## Pendientes antes de publicar (marcados como `TODO` en el propio HTML)
 
-- **Fotos reales** — hoy todas las páginas usan iconos en vez de fotografía real del proceso/gestor. Reemplazar en cada página donde aparezca un icono de servicio.
-- **Testimonios reales** — los de `testimonios.html` y la home son de ejemplo.
+- **Fotos reales** — 8 de 9 ya están puestas. Falta solo la foto de "Sobre mí" (se recomienda que sea una foto real de Marta, no generada).
 - **Texto de "Sobre mí"** — historia personal pendiente de escribir.
 - **Correo de contacto** — `contacto.html` usa `TODO@hagotudiligencia.com` como placeholder.
-- **Precios** — la sección de precios de la home invita a cotizar por WhatsApp; se puede reemplazar por un rango de precios público si se decide (ver benchmark, sección 10.13: los competidores mejor valorados sí publican precios).
+- **Horario de atención** — pendiente de definir en `contacto.html`.
+
+**Decidido:** no se publican precios (sección "¿Cuánto cuesta?" de la home invita a cotizar por WhatsApp). Testimonios ya son reales.
 
 El número de WhatsApp/teléfono (313 248 9177) ya está configurado en todo el sitio.
 
