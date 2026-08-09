@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:hagotudiligencia.com)",
+      "WebFetch(domain:www.soslohagoporti.cl)",
+      "WebFetch(domain:www.tramitesbogota.com)",
+      "WebSearch",
+      "WebFetch(domain:enviurbanos.com)",
+      "WebFetch(domain:www.amdiligenciasytramites.com)",
+      "WebFetch(domain:tusmandados.com)",
+      "WebFetch(domain:www.hagotutramite.cl)",
+      "WebFetch(domain:www.errandgirlmiami.com)",
+      "WebFetch(domain:www.usaconciergeservices.com)",
+      "WebFetch(domain:errandgirlmiami.com)",
+      "WebFetch(domain:usaconciergeservices.com)",
+      "WebFetch(domain:mensajeriamedellin.com)",
+      "WebFetch(domain:vipadmiral.com)",
+      "WebFetch(domain:diligenciasbogota.com)",
+      "WebFetch(domain:diligenciascolombia.com)",
+      "WebFetch(domain:empresadediligencias.godaddysites.com)",
+      "WebFetch(domain:www.messengers.com.co)",
+      "WebFetch(domain:servivueltas.net)",
+      "WebFetch(domain:mensajerosexpresos.com)",
+      "Bash(find ~/.claude -iname \"*web-blueprint*\" -o -iname \"*landing-generator*\" 2>/dev/null)"
+    ]
+  }
+}
