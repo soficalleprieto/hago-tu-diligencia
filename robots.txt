@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hagotudiligencia.com/sitemap.xml
+Sitemap: https://hago-tu-diligencia.vercel.app/sitemap.xml
