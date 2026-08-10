@@ -55,4 +55,9 @@ El número de WhatsApp/teléfono (313 248 9177) ya está configurado en todo el 
 
 ## Despliegue
 
-Sitio 100% estático — desplegable en Vercel sin configuración adicional (framework preset "Other"). Conectar el repo de GitHub a un proyecto de Vercel y cada `git push` a la rama principal genera un despliegue automático.
+Sitio 100% estático — desplegado en Vercel sin configuración adicional (framework preset "Other"): **https://hago-tu-diligencia.vercel.app**. El repo de GitHub (`soficalleprieto/hago-tu-diligencia`) está conectado al proyecto de Vercel, así que cada `git push` a `main` genera un despliegue automático.
+
+## Documentación
+
+- [CHANGELOG.md](CHANGELOG.md) — historial cronológico de cambios, con el porqué de cada decisión.
+- [docs/PLAYBOOK.md](docs/PLAYBOOK.md) — patrones y decisiones reutilizables para construir otras webs de servicio local similares.
