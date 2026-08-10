@@ -60,4 +60,7 @@ Sitio 100% estático — desplegado en Vercel sin configuración adicional (fram
 ## Documentación
 
 - [CHANGELOG.md](CHANGELOG.md) — historial cronológico de cambios, con el porqué de cada decisión.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — arquitectura técnica: por qué este stack, estructura de archivos, CSS/JS, pipeline de imágenes, despliegue.
+- [docs/SEO.md](docs/SEO.md) — factores SEO implementados en el sitio, con cómo verificar cada uno.
+- [docs/BENCHMARK.md](docs/BENCHMARK.md) — estudio de competencia que fundamentó la estructura y el contenido del sitio.
 - [docs/PLAYBOOK.md](docs/PLAYBOOK.md) — patrones y decisiones reutilizables para construir otras webs de servicio local similares.
