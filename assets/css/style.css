@@ -1,17 +1,17 @@
 /* Hago Tu Diligencia — estilos base */
 
 :root{
-  --verde-oscuro:#0f5132;
-  --verde:#1a7a4c;
+  --verde-oscuro:#0b3d2c;
+  --verde:#0e8350;
   --verde-claro:#e6f4ec;
-  --naranja:#e8722c;
-  --naranja-oscuro:#c85a1a;
+  --naranja:#b8460f;
+  --naranja-oscuro:#8f350a;
   --texto:#232323;
   --texto-suave:#5a5a5a;
   --fondo:#ffffff;
   --fondo-alt:#f7f7f5;
   --borde:#e4e2dd;
-  --sombra:0 4px 18px rgba(15,81,50,0.08);
+  --sombra:0 4px 18px rgba(11,61,44,0.08);
   --radio:14px;
   --max:1160px;
 }
@@ -84,7 +84,7 @@ nav.menu a:hover{color:var(--verde);}
   display:inline-flex;align-items:center;gap:8px;
   background:var(--verde);color:#fff !important;
   padding:10px 18px;border-radius:999px;font-weight:700;font-size:.92rem;
-  box-shadow:0 6px 16px rgba(26,122,76,.25);
+  box-shadow:0 6px 16px rgba(14,131,80,.25);
   transition:background .15s ease, transform .1s ease;
 }
 .btn-wsp:hover{background:var(--verde-oscuro);}
@@ -231,16 +231,9 @@ footer.site{background:#12291f;color:#cfe3d8;padding:50px 0 24px;margin-top:40px
 .wsp-float{
   position:fixed;bottom:22px;right:22px;z-index:60;
   background:var(--verde);color:#fff;width:58px;height:58px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(15,81,50,.35);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(11,61,44,.35);
 }
 .wsp-float:hover{background:var(--verde-oscuro);}
-
-/* Placeholder banner */
-.todo-banner{
-  background:#fff4e6;border-bottom:1px solid #f3d9b3;color:#8a5a1e;
-  font-size:.82rem;text-align:center;padding:8px 16px;
-}
-.todo-banner strong{color:#c85a1a;}
 
 /* Breadcrumb */
 .breadcrumb{font-size:.85rem;color:var(--texto-suave);margin-bottom:18px;}
