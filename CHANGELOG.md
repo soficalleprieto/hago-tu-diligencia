@@ -2,6 +2,14 @@
 
 Registro cronológico de cambios del sitio, con el porqué de cada decisión. Se actualiza cada vez que se hace una tanda de cambios — sirve como memoria del proyecto y como referencia para construir webs similares (ver también [docs/PLAYBOOK.md](docs/PLAYBOOK.md) para los patrones reutilizables, no atados a este negocio).
 
+## 2026-08-11
+
+- **Personalidad propia en la home: iconos temáticos + animación de "caminante".** Los 3 checks genéricos de la fila de confianza del hero se cambian por iconos con más carácter (huella, rayo, corazón). En "Cómo funciona" se agrega una pequeña figura animada caminando sobre una línea punteada (CSS puro, sin librerías), con copy de apoyo ("Yo camino Bogotá por ti..."). Motivo: el cliente notó que el sitio "podría ser de cualquier gestoría" y pidió algo que refuerce visualmente que el servicio es alguien caminando la ciudad por ti. Se respeta `prefers-reduced-motion`.
+- **Quita "Inicio" del menú** (el logo ya cumple esa función) y **"Servicios" deja de ser un enlace muerto**: apunta a la nueva página hub `servicios/index.html`.
+- **Nueva página `servicios/index.html`** como hub que agrupa los 6 servicios con foto, pensada para quien todavía no sabe qué servicio exacto necesita; suma al sitemap y actualiza breadcrumbs (visibles + schema) de las 6 páginas de servicio.
+- **Quita el badge "Diligencias en Bogotá" del hero** de la home (a petición del cliente, vía captura anotada).
+- **Contacto: corrige padding de las tarjetas WhatsApp/Teléfono/Correo** (texto pegado a los bordes desde que se agregaron fotos a las tarjetas de servicio) y **agrega un formulario real** (nombre, servicio, mensaje) que arma el mensaje y abre WhatsApp prellenado — sin backend ni cuenta externa. Se quita la nota que explicaba por qué no había formulario. Se define horario de atención: lunes a sábado, 8:00 a.m. a 8:00 p.m.
+
 ## 2026-08-10
 
 - **Schema: `telephone` en LocalBusiness.** Se agrega el teléfono real; no se agrega `sameAs` (sin perfiles externos todavía) ni `openingHours` (sin horario fijo definido).

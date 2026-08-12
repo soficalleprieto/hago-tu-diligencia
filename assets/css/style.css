@@ -169,6 +169,27 @@ section{padding:60px 0;}
 .card-servicio .link{font-weight:700;color:var(--naranja-oscuro);font-size:.9rem;}
 .card-servicio .link:hover{text-decoration:underline;}
 
+/* Escena del caminante (firma de marca: "camino Bogotá por ti") */
+.walk-scene{position:relative;height:48px;max-width:640px;margin:0 auto 32px;}
+.walk-track{position:absolute;top:38px;left:0;width:100%;height:6px;display:block;}
+.walker{position:absolute;top:0;left:0;animation:walk-move 9s linear infinite;}
+.walk-legs-a{animation:walk-toggle .55s steps(1,end) infinite;}
+.walk-legs-b{animation:walk-toggle .55s steps(1,end) infinite reverse;}
+.walk-arm-a{animation:walk-toggle .55s steps(1,end) infinite reverse;}
+.walk-arm-b{animation:walk-toggle .55s steps(1,end) infinite;}
+@keyframes walk-toggle{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+@keyframes walk-move{
+  0%{left:0;transform:translateY(0);}
+  25%{transform:translateY(-3px);}
+  50%{transform:translateY(0);}
+  75%{transform:translateY(-3px);}
+  100%{left:calc(100% - 30px);transform:translateY(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .walker{animation:none;left:calc(50% - 15px);}
+  .walk-legs-a,.walk-legs-b,.walk-arm-a,.walk-arm-b{animation:none;opacity:1;}
+}
+
 /* Steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;}
 .step{position:relative;padding-top:8px;}
