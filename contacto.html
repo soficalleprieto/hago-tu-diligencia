@@ -22,10 +22,10 @@
     <a href="index.html" class="logo">Hago Tu<span class="dot">Diligencia</span></a>
     <nav class="menu">
       <ul>
-        <li><a href="index.html">Inicio</a></li>
         <li class="has-sub">
-          <a href="#">Servicios</a>
+          <a href="servicios/index.html">Servicios</a>
           <ul class="sub">
+            <li><a href="servicios/index.html">Todos los servicios</a></li>
             <li><a href="servicios/tramites-eps.html">Trámites de EPS</a></li>
             <li><a href="servicios/diligencias-personales.html">Diligencias personales</a></li>
             <li><a href="servicios/compras.html">Compras</a></li>
@@ -62,36 +62,70 @@
   <div class="wrap">
     <div class="grid-servicios" style="grid-template-columns:repeat(3,1fr);">
       <div class="card-servicio">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></div>
-        <h3>WhatsApp</h3>
-        <p>Respuesta más rápida. Escríbeme cuando necesites.</p>
-        <a href="https://wa.me/573132489177" class="link">313 248 9177 →</a>
+        <div class="card-body">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg></div>
+          <h3>WhatsApp</h3>
+          <p>Respuesta más rápida. Escríbeme cuando necesites.</p>
+          <a href="https://wa.me/573132489177" class="link">313 248 9177 →</a>
+        </div>
       </div>
       <div class="card-servicio">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-        <h3>Teléfono</h3>
-        <p>Si prefieres una llamada directa.</p>
-        <a href="tel:+573132489177" class="link">313 248 9177 →</a>
+        <div class="card-body">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <h3>Teléfono</h3>
+          <p>Si prefieres una llamada directa.</p>
+          <a href="tel:+573132489177" class="link">313 248 9177 →</a>
+        </div>
       </div>
       <div class="card-servicio">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
-        <h3>Correo</h3>
-        <p>TODO: agrega tu correo real de contacto.</p>
-        <a href="mailto:TODO@hagotudiligencia.com" class="link">TODO@hagotudiligencia.com →</a>
+        <div class="card-body">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <h3>Correo</h3>
+          <p>TODO: agrega tu correo real de contacto.</p>
+          <a href="mailto:TODO@hagotudiligencia.com" class="link">TODO@hagotudiligencia.com →</a>
+        </div>
       </div>
-    </div>
-
-    <div class="precio-nota" style="margin-top:32px;">
-      <strong>Nota:</strong> este sitio es estático (sin backend), así que por ahora no incluye un formulario que envíe datos directamente: los tres canales de arriba (WhatsApp, llamada, correo) sí funcionan de verdad. Si más adelante quieres un formulario con envío automático, se puede añadir con un servicio externo (ej. Formspree) o una función serverless en Vercel.
     </div>
   </div>
 </section>
 
 <section class="alt">
+  <div class="wrap small-wrap">
+    <div class="section-head">
+      <h2>O escríbeme aquí</h2>
+      <p>Llena el formulario y se abre WhatsApp con tu mensaje ya escrito, listo para enviar.</p>
+    </div>
+    <form id="contact-form" class="contact-form">
+      <div class="form-row">
+        <label for="cf-nombre">Nombre</label>
+        <input type="text" id="cf-nombre" name="nombre" required placeholder="Tu nombre">
+      </div>
+      <div class="form-row">
+        <label for="cf-servicio">¿Qué necesitas?</label>
+        <select id="cf-servicio" name="servicio" required>
+          <option value="" disabled selected>Elige una opción</option>
+          <option>Trámites de EPS</option>
+          <option>Diligencias personales</option>
+          <option>Compras</option>
+          <option>Cuidado de hogar y mascotas</option>
+          <option>Limpieza de hogar y oficinas</option>
+          <option>Otro / no estoy seguro/a</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="cf-mensaje">Cuéntame los detalles</label>
+        <textarea id="cf-mensaje" name="mensaje" rows="4" required placeholder="Qué necesitas, para cuándo, y cualquier detalle importante"></textarea>
+      </div>
+      <button type="submit" class="btn-wsp" style="width:100%;justify-content:center;">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section>
   <div class="wrap two-col">
     <div>
       <h2>Horario de atención</h2>
-      <p>TODO: define tu horario real de atención (ej. lunes a sábado, 7am–6pm).</p>
+      <p>Lunes a sábado, de 8:00 a.m. a 8:00 p.m.</p>
       <h2 style="margin-top:28px;">Cobertura</h2>
       <p>Todas las localidades de Bogotá. Ver <a href="zonas/bogota.html" style="color:var(--verde);font-weight:700;">cobertura completa en Bogotá</a>.</p>
     </div>

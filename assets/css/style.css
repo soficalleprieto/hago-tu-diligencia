@@ -192,6 +192,23 @@ section{padding:60px 0;}
 }
 .precio-nota strong{color:var(--naranja-oscuro);}
 
+/* Formulario de contacto */
+.contact-form{display:flex;flex-direction:column;gap:18px;max-width:560px;margin:0 auto;}
+.contact-form .form-row{display:flex;flex-direction:column;gap:6px;}
+.contact-form label{font-weight:700;font-size:.9rem;color:var(--verde-oscuro);}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  border:1px solid var(--borde);border-radius:10px;padding:12px 14px;
+  font-size:.95rem;font-family:inherit;color:var(--texto);background:#fff;
+}
+.contact-form textarea{resize:vertical;min-height:100px;}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+  outline:2px solid var(--verde);outline-offset:1px;border-color:var(--verde);
+}
+
 /* Testimonios */
 .grid-testimonios{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
 .testimonio{

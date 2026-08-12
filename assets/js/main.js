@@ -15,4 +15,17 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  var contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var nombre = contactForm.nombre.value.trim();
+      var servicio = contactForm.servicio.value;
+      var mensaje = contactForm.mensaje.value.trim();
+      var texto = "Hola, soy " + nombre + ". Necesito ayuda con: " + servicio + ". " + mensaje;
+      var url = "https://wa.me/573132489177?text=" + encodeURIComponent(texto);
+      window.open(url, "_blank");
+    });
+  }
 });
