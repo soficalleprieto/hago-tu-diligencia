@@ -173,31 +173,20 @@ section{padding:60px 0;}
 .card-servicio .link{font-weight:700;color:var(--naranja-oscuro);font-size:.9rem;}
 .card-servicio .link:hover{text-decoration:underline;}
 
-/* Mapa del "Cómo funciona", integrado con el texto de cada paso (firma de marca: "camino Bogotá por ti") */
+/* Mapa de "Cómo funciona": la textura y la ruta viven detrás de los números reales, no en una caja aparte */
 .how-block{
   background:#fff;border:1px solid var(--borde);border-radius:22px;
   padding:28px 28px 6px;box-shadow:var(--sombra);
 }
-.route-map{
-  position:relative;max-width:640px;aspect-ratio:640/190;margin:0 auto;
-  border-radius:16px;overflow:hidden;background:var(--verde-claro);
-}
-.route-map-bg{position:absolute;inset:0;width:100%;height:100%;display:block;}
-.route-stop{position:absolute;transform:translate(-50%,-100%);z-index:2;}
-.route-pin{
-  width:30px;height:30px;border-radius:50% 50% 50% 0;background:var(--naranja);
-  transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 3px 8px rgba(11,61,44,.25);
-}
-.route-pin span{transform:rotate(45deg);color:#fff;font-weight:800;font-size:.82rem;}
-.route-stop-end .route-pin{background:var(--verde-oscuro);}
+.how-block .steps{position:relative;}
+.steps-route-bg{position:absolute;top:0;left:0;width:100%;height:60px;display:block;}
 .route-delivery{
-  position:absolute;bottom:calc(100% + 6px);left:50%;
-  transform:translate(-50%,6px) scale(.9);opacity:0;
+  position:absolute;top:-4px;left:87.5%;
+  transform:translate(-50%,-100%) scale(.9);opacity:0;
   animation:route-delivery 12s ease-in-out infinite;z-index:3;
 }
 .route-walker{
-  position:absolute;left:12.5%;top:76.3%;transform:translate(-50%,-100%);
+  position:absolute;left:12.5%;top:33px;transform:translate(-50%,-50%);
   animation:route-walk 12s ease-in-out infinite;z-index:2;
 }
 .walk-legs-a{animation:walk-toggle .55s steps(1,end) infinite;}
@@ -206,28 +195,27 @@ section{padding:60px 0;}
 .walk-arm-b{animation:walk-toggle .55s steps(1,end) infinite;}
 @keyframes walk-toggle{0%,49%{opacity:1;}50%,100%{opacity:0;}}
 @keyframes route-walk{
-  0%,6%{left:12.5%;top:76.3%;opacity:1;}
-  22%,28%{left:37.5%;top:31.6%;opacity:1;}
-  44%,50%{left:62.5%;top:78.9%;opacity:1;}
-  66%,92%{left:87.5%;top:28.9%;opacity:1;}
-  94%{left:87.5%;top:28.9%;opacity:0;}
-  96%{left:12.5%;top:76.3%;opacity:0;}
-  100%{left:12.5%;top:76.3%;opacity:1;}
+  0%,6%{left:12.5%;top:35px;opacity:1;}
+  22%,28%{left:37.5%;top:16px;opacity:1;}
+  44%,50%{left:62.5%;top:42px;opacity:1;}
+  66%,92%{left:87.5%;top:14px;opacity:1;}
+  94%{left:87.5%;top:14px;opacity:0;}
+  96%{left:12.5%;top:35px;opacity:0;}
+  100%{left:12.5%;top:35px;opacity:1;}
 }
 @keyframes route-delivery{
-  0%,64%{opacity:0;transform:translate(-50%,6px) scale(.9);}
-  70%,88%{opacity:1;transform:translate(-50%,0) scale(1);}
-  94%,100%{opacity:0;transform:translate(-50%,6px) scale(.9);}
+  0%,64%{opacity:0;transform:translate(-50%,-100%) scale(.9);}
+  70%,88%{opacity:1;transform:translate(-50%,-115%) scale(1);}
+  94%,100%{opacity:0;transform:translate(-50%,-100%) scale(.9);}
 }
 @media (prefers-reduced-motion: reduce){
-  .route-walker{animation:none;left:87.5%;top:28.9%;opacity:1;}
-  .route-delivery{animation:none;opacity:1;transform:translate(-50%,0) scale(1);}
+  .route-walker{animation:none;left:87.5%;top:14px;opacity:1;}
+  .route-delivery{animation:none;opacity:1;transform:translate(-50%,-115%) scale(1);}
   .walk-legs-a,.walk-legs-b,.walk-arm-a,.walk-arm-b{animation:none;opacity:1;}
 }
-@media (max-width:640px){
-  .route-map{max-width:340px;}
-  .route-pin{width:25px;height:25px;}
-  .route-pin span{font-size:.7rem;}
+@media (max-width:900px){
+  .how-block .steps{padding-top:0;}
+  .steps-route-bg,.route-walker,.route-delivery{display:none;}
 }
 
 /* Steps */
@@ -246,7 +234,7 @@ section{padding:60px 0;}
   transform:rotate(-45deg);font-size:.78rem;box-shadow:0 3px 8px rgba(11,61,44,.2);
 }
 .how-block .step .num span{transform:rotate(45deg);display:block;}
-.how-block .step:nth-child(4) .num{background:var(--verde-oscuro);}
+.how-block .step:last-child .num{background:var(--verde-oscuro);}
 
 /* Coverage */
 .zonas-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
