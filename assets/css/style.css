@@ -178,44 +178,71 @@ section{padding:60px 0;}
   background:#fff;border:1px solid var(--borde);border-radius:22px;
   padding:28px 28px 6px;box-shadow:var(--sombra);
 }
-.how-block .steps{position:relative;}
-.steps-route-bg{position:absolute;top:0;left:0;width:100%;height:60px;display:block;}
-.route-delivery{
-  position:absolute;top:-4px;left:87.5%;
-  transform:translate(-50%,-100%) scale(.9);opacity:0;
-  animation:route-delivery 12s ease-in-out infinite;z-index:3;
+/* Las paradas se calculan desde la posición real de cada pin (borde izquierdo de su
+   columna + medio pin), no desde el centro de la columna: por eso antes iba desfasado. */
+.how-block .steps{
+  position:relative;
+  --gap:22px;
+  --colw:calc((100% - var(--gap) * 3) / 4);
+  --paso:calc(var(--colw) + var(--gap));
+  --linea:65px;              /* altura de la punta del pin: ahí va la ruta */
+  --w1:39px;                 /* 13px (medio pin) + 26px para no pisar el pin */
+  --w2:calc(var(--paso) + 39px);
+  --w3:calc(var(--paso) * 2 + 39px);
+  --w4:calc(var(--paso) * 3 + 39px);
+  --recibe:calc(var(--paso) * 3 + 69px);
+  --casa:calc(var(--paso) * 3 + 97px);
 }
-.route-walker{
-  position:absolute;left:12.5%;top:33px;transform:translate(-50%,-50%);
-  animation:route-walk 12s ease-in-out infinite;z-index:2;
+.steps-route-bg{position:absolute;top:0;left:0;width:100%;height:70px;display:block;}
+.route-line{
+  position:absolute;top:var(--linea);left:13px;margin-top:-1.5px;
+  width:calc(var(--paso) * 3 + 70px);height:3px;
+  background-image:repeating-linear-gradient(to right,var(--naranja) 0 3px,transparent 3px 11px);
 }
-.walk-legs-a{animation:walk-toggle .55s steps(1,end) infinite;}
-.walk-legs-b{animation:walk-toggle .55s steps(1,end) infinite reverse;}
-.walk-arm-a{animation:walk-toggle .55s steps(1,end) infinite reverse;}
-.walk-arm-b{animation:walk-toggle .55s steps(1,end) infinite;}
+.route-house,.route-receiver,.route-walker{
+  position:absolute;top:var(--linea);transform:translate(-50%,-100%);
+}
+.route-house{left:var(--casa);z-index:1;}
+.route-receiver{left:var(--casa);opacity:0;z-index:2;animation:route-receiver 14s ease-out infinite;}
+.route-walker{left:var(--w1);z-index:3;animation:route-walk 14s ease-in-out infinite;}
+.walk-legs-a{animation:walk-toggle .5s steps(1,end) infinite;}
+.walk-legs-b{animation:walk-toggle .5s steps(1,end) infinite reverse;}
+.walk-arm-a{animation:walk-toggle .5s steps(1,end) infinite reverse;}
+.walk-arm-b{animation:walk-toggle .5s steps(1,end) infinite;}
+/* Al pararse en el 4 se congela el ciclo de piernas y se muestra la pose quieta */
+.walk-cycle{animation:walk-cycle-vis 14s steps(1,end) infinite;}
+.walk-still{animation:walk-still-vis 14s steps(1,end) infinite;}
+.walk-bag{animation:walk-bag 14s steps(1,end) infinite;}
+.recv-bag{animation:recv-bag 14s steps(1,end) infinite;}
 @keyframes walk-toggle{0%,49%{opacity:1;}50%,100%{opacity:0;}}
 @keyframes route-walk{
-  0%,6%{left:12.5%;top:35px;opacity:1;}
-  22%,28%{left:37.5%;top:16px;opacity:1;}
-  44%,50%{left:62.5%;top:42px;opacity:1;}
-  66%,92%{left:87.5%;top:14px;opacity:1;}
-  94%{left:87.5%;top:14px;opacity:0;}
-  96%{left:12.5%;top:35px;opacity:0;}
-  100%{left:12.5%;top:35px;opacity:1;}
+  0%,4%{left:var(--w1);opacity:1;}
+  18%,23%{left:var(--w2);opacity:1;}
+  37%,42%{left:var(--w3);opacity:1;}
+  56%,90%{left:var(--w4);opacity:1;}
+  93%{left:var(--w4);opacity:0;}
+  94%{left:var(--w1);opacity:0;}
+  100%{left:var(--w1);opacity:1;}
 }
-@keyframes route-delivery{
-  0%,64%{opacity:0;transform:translate(-50%,-100%) scale(.9);}
-  70%,88%{opacity:1;transform:translate(-50%,-115%) scale(1);}
-  94%,100%{opacity:0;transform:translate(-50%,-100%) scale(.9);}
+@keyframes route-receiver{
+  0%,58%{opacity:0;left:var(--casa);}
+  64%,86%{opacity:1;left:var(--recibe);}
+  91%,100%{opacity:0;left:var(--casa);}
 }
+@keyframes walk-cycle-vis{0%,55%{opacity:1;}56%,94%{opacity:0;}95%,100%{opacity:1;}}
+@keyframes walk-still-vis{0%,55%{opacity:0;}56%,94%{opacity:1;}95%,100%{opacity:0;}}
+@keyframes walk-bag{0%,66%{opacity:1;}68%,94%{opacity:0;}96%,100%{opacity:1;}}
+@keyframes recv-bag{0%,66%{opacity:0;}68%,88%{opacity:1;}90%,100%{opacity:0;}}
 @media (prefers-reduced-motion: reduce){
-  .route-walker{animation:none;left:87.5%;top:14px;opacity:1;}
-  .route-delivery{animation:none;opacity:1;transform:translate(-50%,-115%) scale(1);}
+  .route-walker{animation:none;left:var(--w4);opacity:1;}
+  .route-receiver{animation:none;left:var(--recibe);opacity:1;}
+  .walk-cycle,.walk-bag{animation:none;opacity:0;}
+  .walk-still,.recv-bag{animation:none;opacity:1;}
   .walk-legs-a,.walk-legs-b,.walk-arm-a,.walk-arm-b{animation:none;opacity:1;}
 }
 @media (max-width:900px){
   .how-block .steps{padding-top:0;}
-  .steps-route-bg,.route-walker,.route-delivery{display:none;}
+  .steps-route-bg,.route-line,.route-house,.route-receiver,.route-walker{display:none;}
 }
 
 /* Steps */
@@ -232,6 +259,7 @@ section{padding:60px 0;}
 .how-block .step .num{
   width:26px;height:26px;border-radius:50% 50% 50% 0;
   transform:rotate(-45deg);font-size:.78rem;box-shadow:0 3px 8px rgba(11,61,44,.2);
+  margin-bottom:24px;
 }
 .how-block .step .num span{transform:rotate(45deg);display:block;}
 .how-block .step:last-child .num{background:var(--verde-oscuro);}
