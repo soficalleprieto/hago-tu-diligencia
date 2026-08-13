@@ -2,6 +2,10 @@
 
 Registro cronológico de cambios del sitio, con el porqué de cada decisión. Se actualiza cada vez que se hace una tanda de cambios — sirve como memoria del proyecto y como referencia para construir webs similares (ver también [docs/PLAYBOOK.md](docs/PLAYBOOK.md) para los patrones reutilizables, no atados a este negocio).
 
+## 2026-08-13
+
+- **"Cómo funciona" pasa de caminante suelto a una ruta tipo mapa.** La figura animada ya no camina sobre una línea sin marcas: ahora recorre 4 paradas numeradas (1→2→3→4) sobre el trazo punteado, con pausas en cada una. Al llegar a la parada 4 aparece una segunda escena (una persona recibiendo una bolsa con una cruz, entendida como medicamentos) que se desvanece dentro y fuera en sincronía con la llegada del caminante. Motivo: el cliente pidió que la sección se sintiera como un mapa real con un punto de llegada (la entrega), no solo una animación decorativa de fondo. Los números y el contenido de cada paso (debajo de la ruta) no cambian; la ruta es puramente decorativa (`aria-hidden`) y respeta `prefers-reduced-motion` mostrando el estado final (parada 4, entrega visible) en vez de animar.
+
 ## 2026-08-11
 
 - **Personalidad propia en la home: iconos temáticos + animación de "caminante".** Los 3 checks genéricos de la fila de confianza del hero se cambian por iconos con más carácter (huella, rayo, corazón). En "Cómo funciona" se agrega una pequeña figura animada caminando sobre una línea punteada (CSS puro, sin librerías), con copy de apoyo ("Yo camino Bogotá por ti..."). Motivo: el cliente notó que el sitio "podría ser de cualquier gestoría" y pidió algo que refuerce visualmente que el servicio es alguien caminando la ciudad por ti. Se respeta `prefers-reduced-motion`.
