@@ -187,69 +187,71 @@
       <h2>Cómo funciona</h2>
       <p>Yo camino Bogotá por ti, tú solo me cuentas qué necesitas.</p>
     </div>
-    <div class="route-map" aria-hidden="true">
-      <svg class="route-map-bg" viewBox="0 0 640 190" preserveAspectRatio="none">
-        <rect x="30" y="20" width="90" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
-        <rect x="180" y="115" width="80" height="50" rx="6" fill="rgba(11,61,44,.08)"/>
-        <rect x="330" y="15" width="95" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
-        <rect x="470" y="110" width="95" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
-        <path d="M150 0 V190 M320 0 V190 M480 0 V190" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
-        <path d="M0 95 H640" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
-        <path d="M70,145 C150,110 170,60 230,60 C300,60 340,150 410,150 C470,150 500,55 570,55" fill="none" stroke="var(--naranja)" stroke-width="3" stroke-dasharray="1 10" stroke-linecap="round"/>
-      </svg>
-      <div class="route-stop" style="left:10.94%;top:76.3%"><div class="route-pin"><span>1</span></div></div>
-      <div class="route-stop" style="left:35.94%;top:31.6%"><div class="route-pin"><span>2</span></div></div>
-      <div class="route-stop" style="left:64.06%;top:78.9%"><div class="route-pin"><span>3</span></div></div>
-      <div class="route-stop route-stop-end" style="left:89.06%;top:28.9%">
-        <div class="route-pin"><span>4</span></div>
-        <svg class="route-delivery" viewBox="0 0 34 34" width="30" height="30" fill="none" stroke="var(--verde-oscuro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="6" r="2.2" fill="var(--verde-oscuro)" stroke="none"/>
-          <line x1="9" y1="9" x2="9" y2="19"/>
-          <line x1="9" y1="12" x2="14" y2="15"/>
-          <line x1="9" y1="19" x2="5" y2="27"/>
-          <line x1="9" y1="19" x2="13" y2="27"/>
-          <rect class="route-bag" x="16" y="11" width="13" height="14" rx="1.5" fill="#fff"/>
-          <line x1="19.5" y1="18" x2="25.5" y2="18"/>
-          <line x1="22.5" y1="15" x2="22.5" y2="21"/>
+    <div class="how-block">
+      <div class="route-map" aria-hidden="true">
+        <svg class="route-map-bg" viewBox="0 0 640 190" preserveAspectRatio="none">
+          <rect x="30" y="20" width="90" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
+          <rect x="180" y="115" width="80" height="50" rx="6" fill="rgba(11,61,44,.08)"/>
+          <rect x="330" y="15" width="95" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
+          <rect x="470" y="110" width="95" height="55" rx="6" fill="rgba(11,61,44,.08)"/>
+          <path d="M150 0 V190 M320 0 V190 M480 0 V190" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          <path d="M0 95 H640" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+          <path d="M80,145 C160,110 180,60 240,60 C300,60 340,150 400,150 C460,150 490,55 560,55" fill="none" stroke="var(--naranja)" stroke-width="3" stroke-dasharray="1 10" stroke-linecap="round"/>
         </svg>
+        <div class="route-stop" style="left:12.5%;top:76.3%"><div class="route-pin"><span>1</span></div></div>
+        <div class="route-stop" style="left:37.5%;top:31.6%"><div class="route-pin"><span>2</span></div></div>
+        <div class="route-stop" style="left:62.5%;top:78.9%"><div class="route-pin"><span>3</span></div></div>
+        <div class="route-stop route-stop-end" style="left:87.5%;top:28.9%">
+          <div class="route-pin"><span>4</span></div>
+          <svg class="route-delivery" viewBox="0 0 34 34" width="30" height="30" fill="none" stroke="var(--verde-oscuro)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="6" r="2.2" fill="var(--verde-oscuro)" stroke="none"/>
+            <line x1="9" y1="9" x2="9" y2="19"/>
+            <line x1="9" y1="12" x2="14" y2="15"/>
+            <line x1="9" y1="19" x2="5" y2="27"/>
+            <line x1="9" y1="19" x2="13" y2="27"/>
+            <rect class="route-bag" x="16" y="11" width="13" height="14" rx="1.5" fill="#fff"/>
+            <line x1="19.5" y1="18" x2="25.5" y2="18"/>
+            <line x1="22.5" y1="15" x2="22.5" y2="21"/>
+          </svg>
+        </div>
+        <div class="route-walker">
+          <svg viewBox="0 0 24 30" width="26" height="33" fill="none" stroke="var(--naranja)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="4" r="2.4" fill="var(--naranja)" stroke="none"/>
+            <line x1="12" y1="7" x2="12" y2="17"/>
+            <line class="walk-arm-a" x1="12" y1="10" x2="7" y2="14"/>
+            <line class="walk-arm-b" x1="12" y1="10" x2="17" y2="14"/>
+            <g class="walk-legs-a">
+              <line x1="12" y1="17" x2="8" y2="24"/>
+              <line x1="12" y1="17" x2="16" y2="25"/>
+            </g>
+            <g class="walk-legs-b">
+              <line x1="12" y1="17" x2="16" y2="24"/>
+              <line x1="12" y1="17" x2="8" y2="25"/>
+            </g>
+          </svg>
+        </div>
       </div>
-      <div class="route-walker">
-        <svg viewBox="0 0 24 30" width="26" height="33" fill="none" stroke="var(--naranja)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="4" r="2.4" fill="var(--naranja)" stroke="none"/>
-          <line x1="12" y1="7" x2="12" y2="17"/>
-          <line class="walk-arm-a" x1="12" y1="10" x2="7" y2="14"/>
-          <line class="walk-arm-b" x1="12" y1="10" x2="17" y2="14"/>
-          <g class="walk-legs-a">
-            <line x1="12" y1="17" x2="8" y2="24"/>
-            <line x1="12" y1="17" x2="16" y2="25"/>
-          </g>
-          <g class="walk-legs-b">
-            <line x1="12" y1="17" x2="16" y2="24"/>
-            <line x1="12" y1="17" x2="8" y2="25"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <h3>Me escribes o me llamas</h3>
-        <p>Me cuentas qué necesitas, para cuándo lo necesitas y cualquier detalle importante que deba tener en cuenta.</p>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h3>Te cotizo y organizamos todo</h3>
-        <p>Te digo qué necesito de ti, acordamos la fecha, el valor del servicio y cómo vamos a hacer la diligencia.</p>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h3>Me encargo de la diligencia</h3>
-        <p>Hago la gestión por ti, siguiendo lo acordado y manteniéndote al tanto si surge alguna novedad importante.</p>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <h3>Te entrego el resultado</h3>
-        <p>Te aviso cuando esté listo y te entrego el resultado de la gestión, para que tú no tengas que preocuparte por nada más.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num"><span>1</span></div>
+          <h3>Me escribes o me llamas</h3>
+          <p>Me cuentas qué necesitas, para cuándo lo necesitas y cualquier detalle importante que deba tener en cuenta.</p>
+        </div>
+        <div class="step">
+          <div class="num"><span>2</span></div>
+          <h3>Te cotizo y organizamos todo</h3>
+          <p>Te digo qué necesito de ti, acordamos la fecha, el valor del servicio y cómo vamos a hacer la diligencia.</p>
+        </div>
+        <div class="step">
+          <div class="num"><span>3</span></div>
+          <h3>Me encargo de la diligencia</h3>
+          <p>Hago la gestión por ti, siguiendo lo acordado y manteniéndote al tanto si surge alguna novedad importante.</p>
+        </div>
+        <div class="step">
+          <div class="num"><span>4</span></div>
+          <h3>Te entrego el resultado</h3>
+          <p>Te aviso cuando esté listo y te entrego el resultado de la gestión, para que tú no tengas que preocuparte por nada más.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -261,8 +263,8 @@
       <h2>Zonas donde tengo cobertura en Bogotá</h2>
       <p>Atiendo en toda Bogotá. Si no estás seguro si llego hasta tu zona, escríbeme y lo confirmamos.</p>
       <div class="zonas-list">
-        <span>Antonio Nariño</span><span>Barrios Unidos</span><span>Bosa</span><span>Candelaria</span>
-        <span>Chapinero</span><span>Kennedy</span><span>Puente Aranda</span><span>Rafael Uribe</span>
+        <span>Antonio Nariño</span><span>Barrios Unidos</span><span>Candelaria</span>
+        <span>Chapinero</span><span>Engativá</span><span>Fontibón</span><span>Kennedy</span><span>Puente Aranda</span><span>Rafael Uribe</span>
         <span>Santa Fe</span><span>Suba</span><span>Tunjuelito</span><span>Usaquén</span><span>Usme</span>
       </div>
       <p style="margin-top:18px;"><a href="zonas/bogota.html" class="link" style="color:var(--naranja-oscuro);font-weight:700;">Ver cobertura completa en Bogotá →</a></p>
