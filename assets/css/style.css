@@ -304,6 +304,11 @@ section{padding:60px 0;}
 }
 .cta-final h2{color:#fff;}
 .cta-final p{color:#d9ece1;max-width:52ch;margin:0 auto 26px;}
+.cta-final .cta-phone{
+  display:block;font-size:clamp(2.2rem,6vw,3.4rem);font-weight:800;color:#fff;
+  letter-spacing:.01em;margin:0 0 30px;
+}
+.cta-final .cta-phone:hover{color:var(--naranja);}
 .cta-final .btn-wsp{background:var(--naranja);box-shadow:none;}
 .cta-final .btn-wsp:hover{background:var(--naranja-oscuro);}
 
