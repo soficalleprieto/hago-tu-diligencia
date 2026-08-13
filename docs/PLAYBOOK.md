@@ -1,6 +1,6 @@
 # Playbook — cómo se construyó este sitio (para reutilizar en webs similares)
 
-Este documento recoge los patrones y decisiones que **no son específicos de "Hago Tu Diligencia"**, sino reutilizables para construir otras webs de servicio local (un gestor, un negocio de mandados, un profesional independiente, etc.). Para el historial de cambios concretos de este proyecto, ver [CHANGELOG.md](../CHANGELOG.md).
+Este documento recoge los patrones y decisiones que **no son específicos de "dajula"**, sino reutilizables para construir otras webs de servicio local (un gestor, un negocio de mandados, un profesional independiente, etc.). Para el historial de cambios concretos de este proyecto, ver [CHANGELOG.md](../CHANGELOG.md).
 
 ## 1. Investigación antes de construir
 

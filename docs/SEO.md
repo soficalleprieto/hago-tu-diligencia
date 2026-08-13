@@ -8,22 +8,22 @@ URL base de producción: **https://hago-tu-diligencia.vercel.app**
 
 ## 1. On-page SEO (title, meta description, H1)
 
-Fórmula usada en páginas de servicio: `[Servicio] en Bogotá | Hago Tu Diligencia` para el title, y H1 = `[Servicio] en Bogotá` (patrón que en el benchmark era el que mejor posicionaba — ver BENCHMARK.md sección 9, capa Medellín).
+Fórmula usada en páginas de servicio: `[Servicio] en Bogotá | dajula` para el title, y H1 = `[Servicio] en Bogotá` (patrón que en el benchmark era el que mejor posicionaba — ver BENCHMARK.md sección 9, capa Medellín).
 
 | Página | Title | H1 |
 |---|---|---|
-| `/` | Trámites y Diligencias en Bogotá \| Hago Tu Diligencia | Hago trámites y diligencias POR TI en Bogotá |
-| `/servicios/tramites-eps.html` | Trámites de EPS en Bogotá \| Hago Tu Diligencia | Trámites de EPS en Bogotá |
-| `/servicios/diligencias-personales.html` | Diligencias Personales en Bogotá \| Hago Tu Diligencia | Diligencias personales en Bogotá |
-| `/servicios/compras.html` | Compras y Mercado a Domicilio en Bogotá \| Hago Tu Diligencia | Compras a domicilio en Bogotá |
-| `/servicios/cuidado-hogar-mascotas.html` | Cuidado de Hogar y Mascotas en Bogotá \| Hago Tu Diligencia | Cuidado de hogar y mascotas en Bogotá |
-| `/servicios/limpieza-hogar.html` | Limpieza de Hogar y Oficinas en Bogotá \| Hago Tu Diligencia | Limpieza de hogar y oficinas en Bogotá |
-| `/servicios/a-medida.html` | Diligencias a la Medida en Bogotá \| Hago Tu Diligencia | ¿Necesitas algo que no está en la lista? |
-| `/zonas/bogota.html` | Diligencias en Bogotá — Cobertura por Localidad \| Hago Tu Diligencia | Diligencias en Bogotá |
-| `/testimonios.html` | Testimonios \| Hago Tu Diligencia | Lo que dicen quienes ya confiaron en mí |
-| `/faq.html` | Preguntas Frecuentes \| Hago Tu Diligencia | Preguntas frecuentes |
-| `/sobre-mi.html` | Sobre Mí \| Hago Tu Diligencia | La persona detrás de Hago Tu Diligencia |
-| `/contacto.html` | Contacto \| Hago Tu Diligencia | Hablemos de tu diligencia |
+| `/` | Trámites y Diligencias en Bogotá \| dajula | Hago trámites y diligencias POR TI en Bogotá |
+| `/servicios/tramites-eps.html` | Trámites de EPS en Bogotá \| dajula | Trámites de EPS en Bogotá |
+| `/servicios/diligencias-personales.html` | Diligencias Personales en Bogotá \| dajula | Diligencias personales en Bogotá |
+| `/servicios/compras.html` | Compras y Mercado a Domicilio en Bogotá \| dajula | Compras a domicilio en Bogotá |
+| `/servicios/cuidado-hogar-mascotas.html` | Cuidado de Hogar y Mascotas en Bogotá \| dajula | Cuidado de hogar y mascotas en Bogotá |
+| `/servicios/limpieza-hogar.html` | Limpieza de Hogar y Oficinas en Bogotá \| dajula | Limpieza de hogar y oficinas en Bogotá |
+| `/servicios/a-medida.html` | Diligencias a la Medida en Bogotá \| dajula | ¿Necesitas algo que no está en la lista? |
+| `/zonas/bogota.html` | Diligencias en Bogotá — Cobertura por Localidad \| dajula | Diligencias en Bogotá |
+| `/testimonios.html` | Testimonios \| dajula | Lo que dicen quienes ya confiaron en mí |
+| `/faq.html` | Preguntas Frecuentes \| dajula | Preguntas frecuentes |
+| `/sobre-mi.html` | Sobre Mí \| dajula | La persona detrás de dajula |
+| `/contacto.html` | Contacto \| dajula | Hablemos de tu diligencia |
 
 Cada página tiene también una `<meta name="description">` única (no genérica, no duplicada entre páginas) — ver el `<head>` de cada archivo `.html` directamente para el texto exacto.
 

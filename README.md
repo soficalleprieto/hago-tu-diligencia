@@ -1,4 +1,4 @@
-# Hago Tu Diligencia — sitio web
+# dajula — sitio web
 
 Sitio estático (HTML + CSS + JS, sin build ni dependencias) para el negocio de trámites, diligencias, compras y cuidado del hogar a domicilio en Bogotá.
 

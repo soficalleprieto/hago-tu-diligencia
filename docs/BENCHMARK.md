@@ -1,4 +1,4 @@
-# SEO Competitive Benchmark Without Source HTML — Hago Tu Diligencia (Bogotá)
+# SEO Competitive Benchmark Without Source HTML — dajula (Bogotá)
 
 > **Nota:** este es el estudio de competencia que se hizo el 2026-08-10, **antes** de escribir una sola línea del sitio — es la base sobre la que se decidió la estructura, el menú, la arquitectura de URLs y buena parte del copy (ver [docs/PLAYBOOK.md](PLAYBOOK.md) sección 1). Es una fotografía de un momento concreto: los rankings de Google y el estado de los competidores analizados pueden haber cambiado desde entonces. Para ver qué se implementó realmente a partir de estos hallazgos, y cómo fue evolucionando, ver [CHANGELOG.md](../CHANGELOG.md). Para el estado actual de qué factores SEO están implementados en el sitio (y cómo verificarlos), ver [docs/SEO.md](SEO.md).
 
@@ -34,7 +34,7 @@ Contacto directo (WhatsApp/llamada) para cotizar y agendar la diligencia — no 
 - https://www.tramitesbogota.com/servicios-de-diligencias#DOMICILIOS (Bogotá — coincide con un competidor orgánico verificado en Google, ver sección 4)
 
 ## Desired Tone Of Voice
-No especificado explícitamente por el usuario. Se deduce, por el nombre de marca "Hago Tu Diligencia" y las referencias elegidas, una preferencia por un tono cercano, personal y en primera persona ("yo lo hago por ti"), similar al de soslohagoporti.cl y hagotutramite.cl (ver sección 10).
+No especificado explícitamente por el usuario. Se deduce, por el nombre de marca "dajula" y las referencias elegidas, una preferencia por un tono cercano, personal y en primera persona ("yo lo hago por ti"), similar al de soslohagoporti.cl y hagotutramite.cl (ver sección 10).
 
 ## Probable Keywords Detected
 - Principal: `diligencias Bogotá`, `servicio de diligencias Bogotá`, `mandadero Bogotá`
@@ -43,7 +43,7 @@ No especificado explícitamente por el usuario. Se deduce, por el nombre de marc
 - Variaciones de servicio: `pedir citas EPS Bogotá`, `reclamar medicamentos EPS`, `legalización de documentos Bogotá`, `apostilla Bogotá`, `mercado a domicilio Bogotá`, `cuidado de mascotas mientras viajo Bogotá`, `limpieza de hogar Bogotá`
 
 ## Unclear Or Missing Information
-- Nombre de marca definitivo: se asume "Hago Tu Diligencia" (del dominio `hagotudiligencia.com`), pero el dominio no resuelve todavía — no hay sitio activo. `Not detectable`.
+- Nombre de marca definitivo: se asume "dajula" (del dominio `hagotudiligencia.com`), pero el dominio no resuelve todavía — no hay sitio activo. `Not detectable`.
 - Estructura de precios (por servicio, por hora, tarifa plana). `Not detectable`.
 - Si es una persona sola o un equipo. `Not detectable`.
 - Localidades/barrios específicos de Bogotá donde ya tiene cobertura o clientela. `Not detectable`.
@@ -457,7 +457,7 @@ Not detectable explícitamente, pero la estructura de FAQ (pregunta+respuesta cl
 | Keyword | servicio de mandados y trámites a domicilio Santiago Chile |
 | Page Type | Homepage/landing completa con precios |
 
-**Nota importante:** este es el competidor más relevante de todo el benchmark para el modelo de negocio del usuario — nombre casi idéntico ("Hago Tu Trámite" vs. "Hago Tu Diligencia"), mismo concepto de "yo hago el trámite presencial por ti", y con una estructura de página mucho más madura que la de cualquier competidor colombiano encontrado.
+**Nota importante:** este es el competidor más relevante de todo el benchmark para el modelo de negocio del usuario — nombre casi idéntico ("Hago Tu Trámite" vs. "dajula"), mismo concepto de "yo hago el trámite presencial por ti", y con una estructura de página mucho más madura que la de cualquier competidor colombiano encontrado.
 
 #### Heading Structure
 - H1: "Hacemos tu trámite por ti"
@@ -873,7 +873,7 @@ Not detectable explícitamente.
 ## 21. Concrete SEO Recommendations
 
 ### Recommended Title Formula
-[Servicio] en Bogotá | Hago Tu Diligencia
+[Servicio] en Bogotá | dajula
 
 ### Recommended H1
 Hago tus trámites y diligencias por ti en Bogotá
@@ -981,6 +981,6 @@ Cercano, en primera persona, tranquilizador — evitar el tono "gritado" tipo "�
 
 El sector de "diligencias y trámites a domicilio" en Colombia está, en términos de SEO y estructura web, notablemente por debajo de su equivalente en Chile (hagotutramite.cl) y en el mercado angloparlante de "concierge/errand services" de Miami (vipadmiral.com). La mayoría de competidores directos en Bogotá y a nivel nacional colombiano cometen el mismo error estructural: todo su catálogo de servicios vive en una sola página con anclas, sin URLs propias indexables por servicio — el patrón que, cuando aparece (tusmandados.com, mensajeriamedellin.com, vipadmiral.com), se asocia a la mejor optimización on-page de todo el benchmark.
 
-Para "Hago Tu Diligencia" esto es una ventaja de partida clara: no hay que superar una web robusta y bien indexada, sino un conjunto de webs de constructor gratuito (godaddysites, Wix) o de plantilla sin terminar. Con una arquitectura de página propia por servicio, un H1 con fórmula "servicio + Bogotá", zonas de cobertura explícitas, "cómo funciona" en pasos, testimonios reales y schema desde el día uno —ninguno de los cuales está bien resuelto por la competencia colombiana actual— el sitio puede posicionarse por encima del estándar local del sector desde el lanzamiento.
+Para "dajula" esto es una ventaja de partida clara: no hay que superar una web robusta y bien indexada, sino un conjunto de webs de constructor gratuito (godaddysites, Wix) o de plantilla sin terminar. Con una arquitectura de página propia por servicio, un H1 con fórmula "servicio + Bogotá", zonas de cobertura explícitas, "cómo funciona" en pasos, testimonios reales y schema desde el día uno —ninguno de los cuales está bien resuelto por la competencia colombiana actual— el sitio puede posicionarse por encima del estándar local del sector desde el lanzamiento.
 
 El mayor punto de fricción a resolver con el propio usuario es el de precios y estructura de página única: sus dos referencias (soslohagoporti.cl y tramitesbogota.com) repiten precisamente el patrón que peor posiciona (todo a una sola página de contacto, sin precios visibles). Se recomienda adoptar su tono y naming cercano, pero no su arquitectura de página única.
