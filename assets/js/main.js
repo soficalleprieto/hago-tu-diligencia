@@ -28,4 +28,27 @@ document.addEventListener("DOMContentLoaded", function () {
       window.open(url, "_blank");
     });
   }
+
+  // Ruta de "Cómo funciona": en móvil el camino es un raíl vertical que une los pines de
+  // cada paso. Las tarjetas no tienen alto fijo (depende del texto), así que hay que medir
+  // dónde queda cada pin y publicarlo como variables CSS para colocar el raíl y el caminante.
+  var steps = document.querySelector(".how-block .steps");
+  if (steps) {
+    var medirRuta = function () {
+      var pines = steps.querySelectorAll(".step .num");
+      if (!pines.length) return;
+      var base = steps.getBoundingClientRect();
+      for (var i = 0; i < pines.length; i++) {
+        var r = pines[i].getBoundingClientRect();
+        steps.style.setProperty("--m" + (i + 1), (r.top + r.height / 2 - base.top).toFixed(1) + "px");
+        steps.style.setProperty("--mx", (r.left + r.width / 2 - base.left).toFixed(1) + "px");
+      }
+    };
+    medirRuta();
+    window.addEventListener("resize", medirRuta);
+    window.addEventListener("load", medirRuta);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(medirRuta);
+    }
+  }
 });

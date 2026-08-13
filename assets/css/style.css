@@ -173,96 +173,172 @@ section{padding:60px 0;}
 .card-servicio .link{font-weight:700;color:var(--naranja-oscuro);font-size:.9rem;}
 .card-servicio .link:hover{text-decoration:underline;}
 
-/* Mapa de "Cómo funciona": la textura y la ruta viven detrás de los números reales, no en una caja aparte */
-.how-block{
-  background:#fff;border:1px solid var(--borde);border-radius:22px;
-  padding:28px 28px 6px;box-shadow:var(--sombra);
-}
-/* Las paradas se calculan desde la posición real de cada pin (borde izquierdo de su
-   columna + medio pin), no desde el centro de la columna: por eso antes iba desfasado. */
+/* "Cómo funciona": cada paso es una tarjeta y la ruta ondulada pasa por encima uniendo
+   los pines. En escritorio el camino es horizontal; en móvil se convierte en un raíl
+   vertical, cuyas posiciones mide main.js porque las tarjetas no tienen alto fijo.
+   Las paradas se calculan desde la posición real del pin (centrado sobre su tarjeta). */
+.how-block{position:relative;}
 .how-block .steps{
   position:relative;
+  padding-top:64px;          /* deja sitio a la ruta y a la nubecita del caminante */
   --gap:22px;
   --colw:calc((100% - var(--gap) * 3) / 4);
   --paso:calc(var(--colw) + var(--gap));
-  --linea:65px;              /* altura de la punta del pin: ahí va la ruta */
-  --w1:39px;                 /* 13px (medio pin) + 26px para no pisar el pin */
-  --w2:calc(var(--paso) + 39px);
-  --w3:calc(var(--paso) * 2 + 39px);
-  --w4:calc(var(--paso) * 3 + 39px);
-  --recibe:calc(var(--paso) * 3 + 69px);
-  --casa:calc(var(--paso) * 3 + 97px);
+  --linea:52px;
+  --pin1:calc(var(--colw) / 2);
+  --w1:calc(var(--colw) / 2 + var(--paso) * 0.12);
+  --w2:calc(var(--colw) / 2 + var(--paso) * 1.12);
+  --w3:calc(var(--colw) / 2 + var(--paso) * 2.12);
+  --w4:calc(var(--colw) / 2 + var(--paso) * 3.12);
+  --edificio:calc(var(--colw) / 2 + var(--paso) * 2.24);
+  --recibe:calc(var(--colw) / 2 + var(--paso) * 3.22);
+  --casa:calc(var(--colw) / 2 + var(--paso) * 3.30);
+  /* Reserva para el raíl vertical de móvil; main.js reescribe estos valores midiendo */
+  --mx:26px;--m1:40px;--m2:180px;--m3:320px;--m4:460px;
 }
-.steps-route-bg{position:absolute;top:0;left:0;width:100%;height:70px;display:block;}
-.route-line{
-  position:absolute;top:var(--linea);left:13px;margin-top:-1.5px;
-  width:calc(var(--paso) * 3 + 70px);height:3px;
-  background-image:repeating-linear-gradient(to right,var(--naranja) 0 3px,transparent 3px 11px);
+.steps-route-bg{position:absolute;top:0;left:0;width:100%;height:64px;display:block;}
+.route-curve{
+  position:absolute;top:calc(var(--linea) - 30px);left:var(--pin1);
+  width:calc(var(--paso) * 3.30);height:60px;display:block;
 }
-.route-house,.route-receiver,.route-walker{
+.route-rail{display:none;}
+.steps-route-bg,.route-curve,.route-rail,
+.route-building,.route-house,.route-receiver,.route-walker{pointer-events:none;}
+.route-building,.route-house,.route-receiver,.route-walker{
   position:absolute;top:var(--linea);transform:translate(-50%,-100%);
 }
-.route-house{left:var(--casa);z-index:1;}
-.route-receiver{left:var(--casa);opacity:0;z-index:2;animation:route-receiver 14s ease-out infinite;}
-.route-walker{left:var(--w1);z-index:3;animation:route-walk 14s ease-in-out infinite;}
-.walk-legs-a{animation:walk-toggle .5s steps(1,end) infinite;}
-.walk-legs-b{animation:walk-toggle .5s steps(1,end) infinite reverse;}
-.walk-arm-a{animation:walk-toggle .5s steps(1,end) infinite reverse;}
-.walk-arm-b{animation:walk-toggle .5s steps(1,end) infinite;}
-/* Al pararse en el 4 se congela el ciclo de piernas y se muestra la pose quieta */
+.route-building{left:var(--edificio);z-index:2;}
+.route-house{left:var(--casa);z-index:2;}
+.route-receiver{left:var(--casa);opacity:0;z-index:3;animation:route-receiver 14s ease-out infinite;}
+.route-walker{left:var(--w1);z-index:4;animation:route-walk 14s ease-in-out infinite;}
+.walk-body{display:block;}
+.walk-chat{position:absolute;left:13px;bottom:28px;opacity:0;animation:walk-chat 14s ease-in-out infinite;}
+
+/* Marcha de 4 poses (apoyo, paso, apoyo contrario, paso). Antes alternaba dos posturas
+   abiertas casi simétricas, que se leía como parpadeo y no como caminar. */
+.walk-p1{animation:pose-1 .56s steps(1,end) infinite;}
+.walk-p2{animation:pose-2 .56s steps(1,end) infinite;}
+.walk-p3{animation:pose-3 .56s steps(1,end) infinite;}
+.walk-p4{animation:pose-4 .56s steps(1,end) infinite;}
+@keyframes pose-1{0%,24.9%{opacity:1;}25%,100%{opacity:0;}}
+@keyframes pose-2{0%,24.9%{opacity:0;}25%,49.9%{opacity:1;}50%,100%{opacity:0;}}
+@keyframes pose-3{0%,49.9%{opacity:0;}50%,74.9%{opacity:1;}75%,100%{opacity:0;}}
+@keyframes pose-4{0%,74.9%{opacity:0;}75%,100%{opacity:1;}}
+
+/* Qué lleva en la mano: móvil hablando (1→2), manos libres (2→3), y caja al salir del
+   edificio (3→4), que es lo que entrega en el 4. */
 .walk-cycle{animation:walk-cycle-vis 14s steps(1,end) infinite;}
 .walk-still{animation:walk-still-vis 14s steps(1,end) infinite;}
-.walk-bag{animation:walk-bag 14s steps(1,end) infinite;}
-.recv-bag{animation:recv-bag 14s steps(1,end) infinite;}
-@keyframes walk-toggle{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+.walk-phone{animation:carry-phone 14s steps(1,end) infinite;}
+.walk-free{animation:carry-free 14s steps(1,end) infinite;}
+.walk-box{animation:carry-box 14s steps(1,end) infinite;}
+.recv-box{animation:recv-box 14s steps(1,end) infinite;}
 @keyframes route-walk{
-  0%,4%{left:var(--w1);opacity:1;}
-  18%,23%{left:var(--w2);opacity:1;}
-  37%,42%{left:var(--w3);opacity:1;}
-  56%,90%{left:var(--w4);opacity:1;}
-  93%{left:var(--w4);opacity:0;}
-  94%{left:var(--w1);opacity:0;}
-  100%{left:var(--w1);opacity:1;}
+  0%,4%{left:var(--w1);top:calc(var(--linea) - 4px);opacity:1;}
+  10%{top:calc(var(--linea) - 9px);}
+  17%,22%{left:var(--w2);top:calc(var(--linea) + 4px);opacity:1;}
+  28%{top:calc(var(--linea) + 9px);}
+  35%,39%{left:var(--w3);top:calc(var(--linea) - 4px);opacity:1;}
+  41%,44%{left:var(--w3);top:calc(var(--linea) - 4px);opacity:0;}
+  45%,49%{left:var(--w3);top:calc(var(--linea) - 4px);opacity:1;}
+  55%{top:calc(var(--linea) - 9px);}
+  62%,90%{left:var(--w4);top:var(--linea);opacity:1;}
+  93%{left:var(--w4);top:var(--linea);opacity:0;}
+  94%{left:var(--w1);top:calc(var(--linea) - 4px);opacity:0;}
+  100%{left:var(--w1);top:calc(var(--linea) - 4px);opacity:1;}
 }
 @keyframes route-receiver{
-  0%,58%{opacity:0;left:var(--casa);}
-  64%,86%{opacity:1;left:var(--recibe);}
-  91%,100%{opacity:0;left:var(--casa);}
+  0%,62%{opacity:0;left:var(--casa);}
+  68%,88%{opacity:1;left:var(--recibe);}
+  92%,100%{opacity:0;left:var(--casa);}
 }
-@keyframes walk-cycle-vis{0%,55%{opacity:1;}56%,94%{opacity:0;}95%,100%{opacity:1;}}
-@keyframes walk-still-vis{0%,55%{opacity:0;}56%,94%{opacity:1;}95%,100%{opacity:0;}}
-@keyframes walk-bag{0%,66%{opacity:1;}68%,94%{opacity:0;}96%,100%{opacity:1;}}
-@keyframes recv-bag{0%,66%{opacity:0;}68%,88%{opacity:1;}90%,100%{opacity:0;}}
+@keyframes walk-cycle-vis{
+  0%,3.9%{opacity:0;}4%,16.9%{opacity:1;}17%,21.9%{opacity:0;}
+  22%,34.9%{opacity:1;}35%,48.9%{opacity:0;}49%,61.9%{opacity:1;}62%,100%{opacity:0;}
+}
+@keyframes walk-still-vis{
+  0%,3.9%{opacity:1;}4%,16.9%{opacity:0;}17%,21.9%{opacity:1;}
+  22%,34.9%{opacity:0;}35%,48.9%{opacity:1;}49%,61.9%{opacity:0;}62%,100%{opacity:1;}
+}
+@keyframes walk-chat{0%,5%{opacity:0;}8%,15%{opacity:1;}18%,100%{opacity:0;}}
+@keyframes carry-phone{0%,21.9%{opacity:1;}22%,95.9%{opacity:0;}96%,100%{opacity:1;}}
+@keyframes carry-free{0%,21.9%{opacity:0;}22%,44.9%{opacity:1;}45%,69.9%{opacity:0;}70%,95.9%{opacity:1;}96%,100%{opacity:0;}}
+@keyframes carry-box{0%,44.9%{opacity:0;}45%,69.9%{opacity:1;}70%,100%{opacity:0;}}
+@keyframes recv-box{0%,69.9%{opacity:0;}70%,88%{opacity:1;}90%,100%{opacity:0;}}
 @media (prefers-reduced-motion: reduce){
-  .route-walker{animation:none;left:var(--w4);opacity:1;}
+  .route-walker{animation:none;left:var(--w4);top:var(--linea);opacity:1;}
   .route-receiver{animation:none;left:var(--recibe);opacity:1;}
-  .walk-cycle,.walk-bag{animation:none;opacity:0;}
-  .walk-still,.recv-bag{animation:none;opacity:1;}
-  .walk-legs-a,.walk-legs-b,.walk-arm-a,.walk-arm-b{animation:none;opacity:1;}
-}
-@media (max-width:900px){
-  .how-block .steps{padding-top:0;}
-  .steps-route-bg,.route-line,.route-house,.route-receiver,.route-walker{display:none;}
+  .walk-cycle,.walk-phone,.walk-box,.walk-chat{animation:none;opacity:0;}
+  .walk-still,.walk-free,.recv-box{animation:none;opacity:1;}
+  .walk-p1,.walk-p2,.walk-p3,.walk-p4{animation:none;}
 }
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:step;}
-.step{position:relative;padding-top:8px;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.step{position:relative;}
 .step .num{
   width:38px;height:38px;border-radius:50%;background:var(--naranja);color:#fff;
   display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:14px;
 }
-
-/* Home: los números de "Cómo funciona" reusan la forma de pin del mapa de arriba */
-.how-block .steps{padding-top:14px;}
-.how-block .step{padding-top:20px;}
+/* Cada paso es una tarjeta, con su pin encajado en el borde superior */
+.how-block .step{
+  background:#fff;border:1px solid var(--borde);border-radius:16px;
+  padding:34px 20px 22px;box-shadow:var(--sombra);
+}
 .how-block .step .num{
-  width:26px;height:26px;border-radius:50% 50% 50% 0;
-  transform:rotate(-45deg);font-size:.78rem;box-shadow:0 3px 8px rgba(11,61,44,.2);
-  margin-bottom:24px;
+  position:absolute;top:-12px;left:50%;margin:0;z-index:5;
+  width:28px;height:28px;border-radius:50% 50% 50% 0;
+  transform:translate(-50%,-50%) rotate(-45deg);
+  font-size:.8rem;box-shadow:0 3px 8px rgba(11,61,44,.2);
 }
 .how-block .step .num span{transform:rotate(45deg);display:block;}
 .how-block .step:last-child .num{background:var(--verde-oscuro);}
+
+/* Móvil: una tarjeta por fila y el camino pasa a ser un raíl vertical a la izquierda,
+   con el pin de cada paso apoyado en él, para que se siga viendo el recorrido. */
+@media (max-width:900px){
+  .how-block .steps{grid-template-columns:1fr;padding-top:14px;padding-left:52px;}
+  .steps-route-bg,.route-curve,.route-building,.route-house,.route-receiver{display:none;}
+  .route-rail{
+    display:block;position:absolute;left:var(--mx);top:calc(var(--m1) - 22px);
+    width:3px;height:calc(var(--m4) - var(--m1) + 22px);margin-left:-1.5px;
+    background-image:repeating-linear-gradient(to bottom,var(--naranja) 0 3px,transparent 3px 11px);
+  }
+  .how-block .step{padding:20px;}
+  .how-block .step .num{top:18px;left:-39px;transform:rotate(-45deg);}
+  /* El caminante se para justo encima de cada pin, no sobre él, para no tapar el número */
+  .route-walker{
+    left:var(--mx);top:calc(var(--m1) - 22px);transform:translate(-50%,-50%);
+    animation:route-walk-v 14s ease-in-out infinite;
+  }
+  .walk-cycle{animation:walk-cycle-vis-v 14s steps(1,end) infinite;}
+  .walk-still{animation:walk-still-vis-v 14s steps(1,end) infinite;}
+  .walk-chat{animation:walk-chat-v 14s ease-in-out infinite;}
+  .walk-phone{animation:carry-phone-v 14s steps(1,end) infinite;}
+  .walk-free{animation:carry-free-v 14s steps(1,end) infinite;}
+  .walk-box{animation:carry-box-v 14s steps(1,end) infinite;}
+}
+@keyframes route-walk-v{
+  0%,5%{top:calc(var(--m1) - 22px);opacity:1;}
+  25%,32%{top:calc(var(--m2) - 22px);opacity:1;}
+  52%,59%{top:calc(var(--m3) - 22px);opacity:1;}
+  79%,94%{top:calc(var(--m4) - 22px);opacity:1;}
+  96%{top:calc(var(--m4) - 22px);opacity:0;}
+  97%{top:calc(var(--m1) - 22px);opacity:0;}
+  100%{top:calc(var(--m1) - 22px);opacity:1;}
+}
+@keyframes walk-cycle-vis-v{
+  0%,4.9%{opacity:0;}5%,24.9%{opacity:1;}25%,31.9%{opacity:0;}
+  32%,51.9%{opacity:1;}52%,58.9%{opacity:0;}59%,78.9%{opacity:1;}79%,100%{opacity:0;}
+}
+@keyframes walk-still-vis-v{
+  0%,4.9%{opacity:1;}5%,24.9%{opacity:0;}25%,31.9%{opacity:1;}
+  32%,51.9%{opacity:0;}52%,58.9%{opacity:1;}59%,78.9%{opacity:0;}79%,100%{opacity:1;}
+}
+@keyframes walk-chat-v{0%,6%{opacity:0;}10%,22%{opacity:1;}26%,100%{opacity:0;}}
+@keyframes carry-phone-v{0%,31.9%{opacity:1;}32%,100%{opacity:0;}}
+@keyframes carry-free-v{0%,31.9%{opacity:0;}32%,55.9%{opacity:1;}56%,100%{opacity:0;}}
+@keyframes carry-box-v{0%,55.9%{opacity:0;}56%,100%{opacity:1;}}
 
 /* Coverage */
 .zonas-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
