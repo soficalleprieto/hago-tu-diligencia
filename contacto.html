@@ -98,10 +98,14 @@
       <h2>O escríbeme aquí</h2>
       <p>Llena el formulario y se abre WhatsApp con tu mensaje ya escrito, listo para enviar.</p>
     </div>
-    <form id="contact-form" class="contact-form">
+    <form id="contact-form" class="contact-form" novalidate>
       <div class="form-row">
         <label for="cf-nombre">Nombre</label>
         <input type="text" id="cf-nombre" name="nombre" required placeholder="Tu nombre">
+      </div>
+      <div class="form-row">
+        <label for="cf-telefono">Teléfono o WhatsApp</label>
+        <input type="tel" id="cf-telefono" name="telefono" required placeholder="Para responderte" autocomplete="tel">
       </div>
       <div class="form-row">
         <label for="cf-servicio">¿Qué necesitas?</label>
@@ -116,10 +120,20 @@
         </select>
       </div>
       <div class="form-row">
+        <label for="cf-zona">Zona de la diligencia</label>
+        <input type="text" id="cf-zona" name="zona" required placeholder="Ej.: cita en la 49, o notaría en Chapinero">
+        <small class="form-ayuda">Dónde hay que hacer la gestión, que no siempre es donde vives. Si además tengo que recoger o entregarte algo, dime también tu barrio.</small>
+      </div>
+      <div class="form-row">
         <label for="cf-mensaje">Cuéntame los detalles</label>
         <textarea id="cf-mensaje" name="mensaje" rows="4" required placeholder="Qué necesitas, para cuándo, y cualquier detalle importante"></textarea>
       </div>
-      <button type="submit" class="btn-wsp" style="width:100%;justify-content:center;">Enviar por WhatsApp</button>
+      <div class="campo-trampa" aria-hidden="true">
+        <label for="cf-web">No rellenes este campo</label>
+        <input type="text" id="cf-web" name="web" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="btn-wsp" style="width:100%;justify-content:center;">Enviar mensaje</button>
+      <p class="form-estado" id="form-estado" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>

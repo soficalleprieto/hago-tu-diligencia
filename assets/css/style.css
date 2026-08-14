@@ -401,6 +401,12 @@ section{padding:60px 0;}
   font-size:.95rem;font-family:inherit;color:var(--texto);background:#fff;
 }
 .contact-form textarea{resize:vertical;min-height:100px;}
+.contact-form .form-ayuda{font-size:.82rem;color:var(--texto-suave);line-height:1.45;}
+/* Campo trampa antispam: fuera de la vista pero accesible para los bots */
+.campo-trampa{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+.form-estado{margin:14px 0 0;font-size:.92rem;font-weight:600;text-align:center;}
+.form-estado.es-ok{color:var(--verde);}
+.form-estado.es-error{color:var(--naranja-oscuro);}
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus{
