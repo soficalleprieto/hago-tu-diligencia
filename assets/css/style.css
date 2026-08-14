@@ -355,6 +355,26 @@ section{padding:60px 0;}
 @keyframes carry-free-v{0%,55.9%{opacity:1;}56%,100%{opacity:0;}}
 @keyframes carry-box-v{0%,55.9%{opacity:0;}56%,100%{opacity:1;}}
 
+/* Servicios en lista: cada uno ocupa su propia fila, alternando el lado de la foto,
+   con espacio para convencer y su propio CTA. Convierte mejor que la cuadrícula. */
+.servicios-lista{display:flex;flex-direction:column;gap:64px;}
+.servicio-fila{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:center;}
+.servicio-fila:nth-child(even) .servicio-foto{order:2;}
+.servicio-foto{
+  border-radius:20px;overflow:hidden;box-shadow:var(--sombra);
+  aspect-ratio:4/3;background:var(--fondo-alt);
+}
+.servicio-foto img{width:100%;height:100%;object-fit:cover;display:block;}
+.servicio-txt h3{font-size:1.55rem;margin-bottom:12px;}
+.servicio-txt .lista-check{margin-top:16px;}
+.servicio-ctas{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:24px;}
+@media (max-width:900px){
+  .servicios-lista{gap:44px;}
+  .servicio-fila{grid-template-columns:1fr;gap:20px;}
+  .servicio-fila:nth-child(even) .servicio-foto{order:0;}
+  .servicio-foto{aspect-ratio:16/10;}
+}
+
 /* Coverage */
 .zonas-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
 .zonas-list span{
